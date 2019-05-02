@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
+import './index.css';
 import TopGames from './components/TopGames';
 
 function App() {
   return (
     <div className="App">
-      <h1>Test Info</h1>
+      <h1 className="text-center">Test Info</h1>
       <TopGames />
     </div>
   );

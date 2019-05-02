@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import fetchData from "../utils/fetchData";
 
 // define component
 const TopGames = () => {
@@ -13,23 +14,17 @@ const TopGames = () => {
     })
   };
 
-  // fires and fetches after dom load (so we fetch data only once after original dom is loaded)
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(url, headers);
-      const data = await response.json();
-      const item = data.data;
+    async function getTopGames() {
+      const item = await fetchData(url, headers);
       // set new state with response json data
       setTopGames({
         isLoaded: true,
         results: item
-      })
+      });
     }
-    // call fetchData to retrieve api info
-    fetchData();
+    getTopGames();
   }, []);
-
-  
 
   return (
     <div>

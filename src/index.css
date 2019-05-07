@@ -483,6 +483,34 @@ table {
   border-collapse: collapse;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 992px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
 .list-reset {
   list-style: none;
   padding: 0;
@@ -798,6 +826,10 @@ table {
   background-color: #ffebef;
 }
 
+.bg-twitch-purple {
+  background-color: #342273;
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
@@ -1090,6 +1122,10 @@ table {
   background-color: #ffebef;
 }
 
+.hover\:bg-twitch-purple:hover {
+  background-color: #342273;
+}
+
 .focus\:bg-transparent:focus {
   background-color: transparent;
 }
@@ -1380,6 +1416,10 @@ table {
 
 .focus\:bg-pink-lightest:focus {
   background-color: #ffebef;
+}
+
+.focus\:bg-twitch-purple:focus {
+  background-color: #342273;
 }
 
 .bg-bottom {
@@ -1746,6 +1786,10 @@ table {
   border-color: #ffebef;
 }
 
+.border-twitch-purple {
+  border-color: #342273;
+}
+
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
@@ -2038,6 +2082,10 @@ table {
   border-color: #ffebef;
 }
 
+.hover\:border-twitch-purple:hover {
+  border-color: #342273;
+}
+
 .focus\:border-transparent:focus {
   border-color: transparent;
 }
@@ -2328,6 +2376,10 @@ table {
 
 .focus\:border-pink-lightest:focus {
   border-color: #ffebef;
+}
+
+.focus\:border-twitch-purple:focus {
+  border-color: #342273;
 }
 
 .rounded-none {
@@ -5085,6 +5137,10 @@ table {
   color: #ffebef;
 }
 
+.text-twitch-purple {
+  color: #342273;
+}
+
 .hover\:text-transparent:hover {
   color: transparent;
 }
@@ -5377,6 +5433,10 @@ table {
   color: #ffebef;
 }
 
+.hover\:text-twitch-purple:hover {
+  color: #342273;
+}
+
 .focus\:text-transparent:focus {
   color: transparent;
 }
@@ -5667,6 +5727,10 @@ table {
 
 .focus\:text-pink-lightest:focus {
   color: #ffebef;
+}
+
+.focus\:text-twitch-purple:focus {
+  color: #342273;
 }
 
 .text-xs {
@@ -6077,24 +6141,31 @@ table {
   z-index: auto;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* custom styles */
+
+#nav-menu > ul > li:not(:first-child) {
+  margin-left: 2em;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+/* video holder/hero */
+
+/* #hero {
+  height: 500px;
+} */
+
+#videoWrapper {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  max-width: 100%;
 }
 
-/* define root as CSS GRID */
-
-#App {
-  display: grid;
-  grid-template-rows: 100px 1fr;
-  grid-template-columns: 1fr 100px;
+#videoWrapper > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 @media (min-width: 576px) {
@@ -6413,6 +6484,10 @@ code {
     background-color: #ffebef;
   }
 
+  .sm\:bg-twitch-purple {
+    background-color: #342273;
+  }
+
   .sm\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -6705,6 +6780,10 @@ code {
     background-color: #ffebef;
   }
 
+  .sm\:hover\:bg-twitch-purple:hover {
+    background-color: #342273;
+  }
+
   .sm\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -6995,6 +7074,10 @@ code {
 
   .sm\:focus\:bg-pink-lightest:focus {
     background-color: #ffebef;
+  }
+
+  .sm\:focus\:bg-twitch-purple:focus {
+    background-color: #342273;
   }
 
   .sm\:bg-bottom {
@@ -7353,6 +7436,10 @@ code {
     border-color: #ffebef;
   }
 
+  .sm\:border-twitch-purple {
+    border-color: #342273;
+  }
+
   .sm\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -7645,6 +7732,10 @@ code {
     border-color: #ffebef;
   }
 
+  .sm\:hover\:border-twitch-purple:hover {
+    border-color: #342273;
+  }
+
   .sm\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -7935,6 +8026,10 @@ code {
 
   .sm\:focus\:border-pink-lightest:focus {
     border-color: #ffebef;
+  }
+
+  .sm\:focus\:border-twitch-purple:focus {
+    border-color: #342273;
   }
 
   .sm\:rounded-none {
@@ -10676,6 +10771,10 @@ code {
     color: #ffebef;
   }
 
+  .sm\:text-twitch-purple {
+    color: #342273;
+  }
+
   .sm\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -10968,6 +11067,10 @@ code {
     color: #ffebef;
   }
 
+  .sm\:hover\:text-twitch-purple:hover {
+    color: #342273;
+  }
+
   .sm\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -11258,6 +11361,10 @@ code {
 
   .sm\:focus\:text-pink-lightest:focus {
     color: #ffebef;
+  }
+
+  .sm\:focus\:text-twitch-purple:focus {
+    color: #342273;
   }
 
   .sm\:text-xs {
@@ -11985,6 +12092,10 @@ code {
     background-color: #ffebef;
   }
 
+  .md\:bg-twitch-purple {
+    background-color: #342273;
+  }
+
   .md\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -12277,6 +12388,10 @@ code {
     background-color: #ffebef;
   }
 
+  .md\:hover\:bg-twitch-purple:hover {
+    background-color: #342273;
+  }
+
   .md\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -12567,6 +12682,10 @@ code {
 
   .md\:focus\:bg-pink-lightest:focus {
     background-color: #ffebef;
+  }
+
+  .md\:focus\:bg-twitch-purple:focus {
+    background-color: #342273;
   }
 
   .md\:bg-bottom {
@@ -12925,6 +13044,10 @@ code {
     border-color: #ffebef;
   }
 
+  .md\:border-twitch-purple {
+    border-color: #342273;
+  }
+
   .md\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -13217,6 +13340,10 @@ code {
     border-color: #ffebef;
   }
 
+  .md\:hover\:border-twitch-purple:hover {
+    border-color: #342273;
+  }
+
   .md\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -13507,6 +13634,10 @@ code {
 
   .md\:focus\:border-pink-lightest:focus {
     border-color: #ffebef;
+  }
+
+  .md\:focus\:border-twitch-purple:focus {
+    border-color: #342273;
   }
 
   .md\:rounded-none {
@@ -16248,6 +16379,10 @@ code {
     color: #ffebef;
   }
 
+  .md\:text-twitch-purple {
+    color: #342273;
+  }
+
   .md\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -16540,6 +16675,10 @@ code {
     color: #ffebef;
   }
 
+  .md\:hover\:text-twitch-purple:hover {
+    color: #342273;
+  }
+
   .md\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -16830,6 +16969,10 @@ code {
 
   .md\:focus\:text-pink-lightest:focus {
     color: #ffebef;
+  }
+
+  .md\:focus\:text-twitch-purple:focus {
+    color: #342273;
   }
 
   .md\:text-xs {
@@ -17557,6 +17700,10 @@ code {
     background-color: #ffebef;
   }
 
+  .lg\:bg-twitch-purple {
+    background-color: #342273;
+  }
+
   .lg\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -17849,6 +17996,10 @@ code {
     background-color: #ffebef;
   }
 
+  .lg\:hover\:bg-twitch-purple:hover {
+    background-color: #342273;
+  }
+
   .lg\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -18139,6 +18290,10 @@ code {
 
   .lg\:focus\:bg-pink-lightest:focus {
     background-color: #ffebef;
+  }
+
+  .lg\:focus\:bg-twitch-purple:focus {
+    background-color: #342273;
   }
 
   .lg\:bg-bottom {
@@ -18497,6 +18652,10 @@ code {
     border-color: #ffebef;
   }
 
+  .lg\:border-twitch-purple {
+    border-color: #342273;
+  }
+
   .lg\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -18789,6 +18948,10 @@ code {
     border-color: #ffebef;
   }
 
+  .lg\:hover\:border-twitch-purple:hover {
+    border-color: #342273;
+  }
+
   .lg\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -19079,6 +19242,10 @@ code {
 
   .lg\:focus\:border-pink-lightest:focus {
     border-color: #ffebef;
+  }
+
+  .lg\:focus\:border-twitch-purple:focus {
+    border-color: #342273;
   }
 
   .lg\:rounded-none {
@@ -21820,6 +21987,10 @@ code {
     color: #ffebef;
   }
 
+  .lg\:text-twitch-purple {
+    color: #342273;
+  }
+
   .lg\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -22112,6 +22283,10 @@ code {
     color: #ffebef;
   }
 
+  .lg\:hover\:text-twitch-purple:hover {
+    color: #342273;
+  }
+
   .lg\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -22402,6 +22577,10 @@ code {
 
   .lg\:focus\:text-pink-lightest:focus {
     color: #ffebef;
+  }
+
+  .lg\:focus\:text-twitch-purple:focus {
+    color: #342273;
   }
 
   .lg\:text-xs {
@@ -23129,6 +23308,10 @@ code {
     background-color: #ffebef;
   }
 
+  .xl\:bg-twitch-purple {
+    background-color: #342273;
+  }
+
   .xl\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -23421,6 +23604,10 @@ code {
     background-color: #ffebef;
   }
 
+  .xl\:hover\:bg-twitch-purple:hover {
+    background-color: #342273;
+  }
+
   .xl\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -23711,6 +23898,10 @@ code {
 
   .xl\:focus\:bg-pink-lightest:focus {
     background-color: #ffebef;
+  }
+
+  .xl\:focus\:bg-twitch-purple:focus {
+    background-color: #342273;
   }
 
   .xl\:bg-bottom {
@@ -24069,6 +24260,10 @@ code {
     border-color: #ffebef;
   }
 
+  .xl\:border-twitch-purple {
+    border-color: #342273;
+  }
+
   .xl\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -24361,6 +24556,10 @@ code {
     border-color: #ffebef;
   }
 
+  .xl\:hover\:border-twitch-purple:hover {
+    border-color: #342273;
+  }
+
   .xl\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -24651,6 +24850,10 @@ code {
 
   .xl\:focus\:border-pink-lightest:focus {
     border-color: #ffebef;
+  }
+
+  .xl\:focus\:border-twitch-purple:focus {
+    border-color: #342273;
   }
 
   .xl\:rounded-none {
@@ -27392,6 +27595,10 @@ code {
     color: #ffebef;
   }
 
+  .xl\:text-twitch-purple {
+    color: #342273;
+  }
+
   .xl\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -27684,6 +27891,10 @@ code {
     color: #ffebef;
   }
 
+  .xl\:hover\:text-twitch-purple:hover {
+    color: #342273;
+  }
+
   .xl\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -27974,6 +28185,10 @@ code {
 
   .xl\:focus\:text-pink-lightest:focus {
     color: #ffebef;
+  }
+
+  .xl\:focus\:text-twitch-purple:focus {
+    color: #342273;
   }
 
   .xl\:text-xs {

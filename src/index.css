@@ -6168,6 +6168,19 @@ table {
   height: 100%;
 }
 
+#videosList {
+  min-height: 500px;
+}
+
+/* game/channel name truncation for long titles */
+
+.truncate {
+  width: 175px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

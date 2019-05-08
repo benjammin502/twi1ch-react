@@ -1,9 +1,10 @@
 import React from "react";
 import "./index.css";
 // import "./app.css";
-import TopGames from "./components/TopGames";
+import Games from "./components/Games";
+import Streams from "./components/Streams";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       {/* Header */}
@@ -30,7 +31,14 @@ function App() {
         </div>
       </section>
 
-      <section id="videosList">videos go here</section>
+      <section id="videosList" className="bg-black overflow-y-auto pt-10">
+        {/* <Games title="Top Games" url="https://api.twitch.tv/helix/games/top?first=20" /> */}
+        <Streams title="Streams" url="https://api.twitch.tv/helix/streams" />
+      </section>
+
+      <footer className="h-16 bg-twitch-purple text-white flex justify-around items-center">
+        <span>&copy; {new Date().getFullYear()} - Benjamin Myers - Made with ☕️ React, & Tailwind</span>
+      </footer>
     </div>
   );
 }

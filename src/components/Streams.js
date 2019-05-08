@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import fetchData from "../utils/fetchData";
+import ContentList from "./ContentList";
 
 // define component
-const TopGames = () => {
+const Streams = (props) => {
   // declare variables and set initial state
-  const [games, setTopGames] = useState({ isLoaded: false, results: [] });
+  const [streams, setStreams] = useState({ isLoaded: false, results: [] });
 
   // declare url and headers for fetch request
-  const url = "https://api.twitch.tv/helix/games/top";
+  const url = props.url;
   const headers = {
     headers: new Headers({
       "Client-ID": process.env.REACT_APP_CLIENT_ID
@@ -15,26 +16,22 @@ const TopGames = () => {
   };
 
   useEffect(() => {
-    async function getTopGames() {
+    async function getStreams() {
       const item = await fetchData(url, headers);
       // set new state with response json data
-      setTopGames({
+      setStreams({
         isLoaded: true,
         results: item
       });
+
+      console.log(item);
     }
-    getTopGames();
+    getStreams();
   }, []);
 
   return (
-    <div>
-      <ul>
-        {games.results.map(game => (
-          <li key={game.id}>{game.id}</li>
-        ))}
-      </ul>
-    </div>
+    <ContentList title="Streams" url="https://api.twitch.tv/helix/streams" type="streams" fetchObj={{streams}}/>
   );
 };
 
-export default TopGames;
+export default Streams;

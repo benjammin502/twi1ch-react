@@ -1,45 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 // import "./app.css";
 import Games from "./components/Games";
 import Streams from "./components/Streams";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
-function App(props) {
+import WithApp from "./hoc/WithApp";
+import WithContainer from "./hoc/WithContainer";
+import WithSectionClasses from "./hoc/WithSectionClasses";
+import ContentList from "./components/ContentList";
+
+function App() {
+  const [channel, setChannel] = useState("shroud");
+
+  const handleStreamChange = e => {
+    console.log(e.currentTarget.dataset.channel);
+    setChannel(e.currentTarget.dataset.channel);
+  };
+
   return (
-    <div className="App">
+    <WithApp>
       {/* Header */}
-      <header className="h-16 bg-twitch-purple text-white shadow-lg">
-        <nav id="nav-menu">
-          <ul className="list-reset flex flex-row justify-left items-center h-16 ml-8">
-            <li>Twi1ch</li>
-            <li>Top Games</li>
-            <li>Streams</li>
-            <li>Games</li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
 
-      {/* video section/hero */}
-      <section id="hero" className="bg-black">
-        <div id="videoWrapper">
-          <iframe
-            src="https://player.twitch.tv/?channel=shroud"
-            frameborder="0"
-            scrolling="no"
-            allowfullscreen="true"
+      <WithContainer>
+        {/* video section/hero */}
+        <WithSectionClasses id="hero" className="bg-black">
+          <div id="videoWrapper">
+            <iframe
+              src={`https://player.twitch.tv/?channel=${channel}`}
+              frameBorder="0"
+              scrolling="no"
+              allowfullscreen="true"
+              title="Twitch Stream"
+            />
+          </div>
+        </WithSectionClasses>
+
+        {/* Section to display either Streams component or Videos component */}
+        <WithSectionClasses
+          id="videosList"
+          className="bg-black overflow-y-auto pt-10 w-full mx-auto"
+        >
+          {/* <Games title="Top Games" url="https://api.twitch.tv/helix/games/top?first=20" /> */}
+          <Streams
+            title="Streams"
+            url="https://api.twitch.tv/helix/streams"
+            parentStreamHandler={handleStreamChange}
           />
-        </div>
-      </section>
+        </WithSectionClasses>
+      </WithContainer>
 
-      <section id="videosList" className="bg-black overflow-y-auto pt-10">
-        {/* <Games title="Top Games" url="https://api.twitch.tv/helix/games/top?first=20" /> */}
-        <Streams title="Streams" url="https://api.twitch.tv/helix/streams" />
-      </section>
-
-      <footer className="h-16 bg-twitch-purple text-white flex justify-around items-center">
-        <span>&copy; {new Date().getFullYear()} - Benjamin Myers - Made with ☕️ React, & Tailwind</span>
-      </footer>
-    </div>
+      {/* footer component */}
+      <Footer />
+    </WithApp>
   );
 }
 

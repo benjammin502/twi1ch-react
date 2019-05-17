@@ -9,9 +9,11 @@
 
 /* video holder/hero */
 
-/* #hero {
-  height: 500px;
-} */
+/* Hero Section spanning full-width holding video */
+#heroSection {
+  background: url(./img/space-invaders.jpg) top left no-repeat, url(./img/gamer.jpg) top right no-repeat;
+  background-size: contain;
+}
 
 #videoWrapper {
   position: relative;
@@ -32,12 +34,16 @@
   min-height: 500px;
 }
 
+/* UL holding the items returned from the rest call */
+#streamsUl > li {
+  width: 400px;
+}
+
+
 /* game/channel name truncation for long titles */
 .truncate {
-  width: 175px;
+  width: 400px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-

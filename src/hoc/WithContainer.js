@@ -1,8 +1,11 @@
 import React from 'react'
 
-const WithContainer = ({ children }) => {
+const WithContainer = (props) => {
+  const container = props.container === 'true' ? 'container mx-auto' : '';
+  console.log(container);
+
   return (
-    <div className="container mx-auto">{children}</div>
+    <div id={props.id} className={container}>{props.children}</div>
   )
 }
 

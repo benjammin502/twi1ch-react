@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./index.css";
 // import "./app.css";
-import Games from "./components/Games";
 import Streams from "./components/Streams";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -9,7 +8,6 @@ import Header from "./components/Header";
 import WithApp from "./hoc/WithApp";
 import WithContainer from "./hoc/WithContainer";
 import WithSectionClasses from "./hoc/WithSectionClasses";
-import ContentList from "./components/ContentList";
 
 function App() {
   const [channel, setChannel] = useState("shroud");
@@ -24,24 +22,28 @@ function App() {
       {/* Header */}
       <Header />
 
-      <WithContainer>
-        {/* video section/hero */}
-        <WithSectionClasses id="hero" className="bg-black">
-          <div id="videoWrapper">
-            <iframe
-              src={`https://player.twitch.tv/?channel=${channel}`}
-              frameBorder="0"
-              scrolling="no"
-              allowfullscreen="true"
-              title="Twitch Stream"
-            />
-          </div>
-        </WithSectionClasses>
+      <WithContainer id="heroSection" container="false">
+        <WithContainer container="true">
+          {/* video section/hero */}
+          <WithSectionClasses id="hero" className="bg-black">
+            <div id="videoWrapper">
+              <iframe
+                src={`https://player.twitch.tv/?channel=${channel}`}
+                frameBorder="0"
+                scrolling="no"
+                allowfullscreen="true"
+                title="Twitch Stream"
+              />
+            </div>
+          </WithSectionClasses>
+        </WithContainer>
+      </WithContainer>
 
-        {/* Section to display either Streams component or Videos component */}
+      {/* Section to display either Streams component or Videos component */}
+      <WithContainer>
         <WithSectionClasses
           id="videosList"
-          className="bg-black overflow-y-auto pt-10 w-full mx-auto"
+          className="bg-black overflow-y-auto pt-10 w-5/6 mx-auto"
         >
           {/* <Games title="Top Games" url="https://api.twitch.tv/helix/games/top?first=20" /> */}
           <Streams

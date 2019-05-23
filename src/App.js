@@ -22,7 +22,7 @@ function App() {
       {/* Header */}
       <Header />
 
-      <WithContainer id="heroSection" container="false">
+      <WithContainer id="heroSection" container="false" className="shadow-md">
         <WithContainer container="true">
           {/* video section/hero */}
           <WithSectionClasses id="hero" className="bg-black">

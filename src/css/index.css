@@ -35,10 +35,16 @@
 }
 
 /* UL holding the items returned from the rest call */
-#streamsUl > li {
-  width: 400px;
+#streamsUl li {
+  min-width: 400px;
+  min-height: 300px;
+  transition: all 0.5s;
 }
 
+#streamsUl li.streamHover {
+  min-width: 400px;
+  min-height: 350px;
+}
 
 /* game/channel name truncation for long titles */
 .truncate {

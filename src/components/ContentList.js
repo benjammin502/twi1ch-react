@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ContentList = ({ title, type, fetchObj, fromParent }) => {
-  let [channel, setChannel] = useState("shroud");
+  const [isHover, setIsHover] = useState([]);
   const itemType = type;
 
-  const handleClick = e => {
-    channel = e.target.value;
-    setChannel(channel);
+  const handleOnMouseEnter = (e) => {
+    
+  };
+
+  const handleOnMouseLeave = i => {
   };
 
   return (
@@ -16,12 +18,15 @@ const ContentList = ({ title, type, fetchObj, fromParent }) => {
         id="streamsUl"
         className="flex justify-around flex-wrap list-reset text-white"
       >
-        {fetchObj.streams.results.map(item => (
+        {fetchObj.streams.results.map((item, index) => (
           <li
             key={item.id}
-            className="m-6 shadow-md bg-white cursor-pointer rounded text-black"
+            id={item.id}
+            className="m-6 shadow-lg bg-white cursor-pointer text-black rounded"
             onClick={fromParent}
             data-channel={item.user_name}
+            onMouseEnter={handleOnMouseEnter}
+            onMouseLeave={handleOnMouseLeave}
           >
             <div className="thumbnail mb-2">
               {itemType === "streams" && (
@@ -32,6 +37,7 @@ const ContentList = ({ title, type, fetchObj, fromParent }) => {
                   )}
                   alt={item.user_name}
                   data-channel={item.user_name}
+                  className="rounded-t"
                 />
               )}
             </div>

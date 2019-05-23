@@ -29,8 +29,6 @@ const Streams = (props) => {
     getStreams();
   }, []);
 
-  
-
   return (
     <ContentList title="Streams" url="https://api.twitch.tv/helix/streams" type="streams" fetchObj={{streams}} fromParent={props.parentStreamHandler} />
   );
